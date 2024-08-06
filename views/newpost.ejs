@@ -1,0 +1,56 @@
+<!-- add header link here -->
+<%- include("partials/header.ejs") %>
+
+<div class="container">
+  <% if(locals.data){ %>
+
+  <!-- for editing an existing post -->
+  <h1 class="new-post-heading heading">Edit your Post</h1>
+  <form
+    method="post"
+    action=" /edit/<%= locals.data.id %>"
+    class="new-post-form"
+  >
+    <textarea class="new-post-title" name="title" id="">
+<%= locals.data.title %></textarea
+    >
+    <textarea class="new-post-content" name="content" id="">
+<%= locals.data.content %></textarea
+    >
+    <textarea class="new-post-author" name="author">
+<%= locals.data.author %></textarea
+    >
+    <input class="new-post-submit" type="submit" />
+  </form>
+
+  <% }else{ %>
+
+  <!-- for creating a new post -->
+  <div class="new-post-div">
+    <h1 class="new-post-heading heading">Write your Post</h1>
+    <form method="post" action="/newPost" class="new-post-form">
+      <textarea
+        class="new-post-title"
+        placeholder="Write title here here"
+        name="title"
+        id=""
+      ></textarea>
+      <textarea
+        class="new-post-content"
+        name="content"
+        placeholder="Enter blog here"
+        id=""
+      ></textarea>
+      <textarea
+        class="new-post-author"
+        name="author"
+        placeholder="Write author name here"
+      ></textarea>
+      <input class="new-post-submit" type="submit" />
+    </form>
+  </div>
+  <% } %>
+</div>
+
+<!-- add footer link here -->
+<%- include("partials/footer.ejs") %>

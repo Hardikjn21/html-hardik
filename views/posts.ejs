@@ -1,0 +1,29 @@
+<!-- add header link here -->
+<%- include("partials/header.ejs") %>
+<div class="container">
+  <h1 class="posts-heading heading"></h1>
+
+  <% if (locals.data) {%>
+
+  <div class="posts-content">
+    <!-- do the post wala thing using this -->
+    <% data.forEach(post => {%>
+
+    <div class="post-item">
+      <p class="post-item-title"><%= post.title %></p>
+      <p class="post-item-text"><%= post.content %></p>
+      <p class="post-item-author"><%= post.author %></p>
+      <p class="post-item-date"><%= post.date %></p>
+
+      <div class="buttons flex">
+        <a href="/delete/<%= post.id %>" class="btn btn-delete">Delete</a>
+        <a href="/edit/<%= post.id %>" class="btn btn-edit">Edit</a>
+      </div>
+    </div>
+    <%}); %>
+  </div>
+  <% } %>
+</div>
+
+<!-- add footer link here -->
+<%- include("partials/footer.ejs") %>
